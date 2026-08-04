@@ -1,13 +1,24 @@
-# mcp-the-graph
+# @pipeworx/the-graph
 
-The Graph MCP — indexed blockchain data via subgraph GraphQL queries
+The Graph MCP — GraphQL queries against blockchain subgraphs.
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 673+ live data sources.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1394+ live data sources.
 
 ## Tools
 
-| Tool | Description |
-|------|-------------|
+- `query_subgraph(subgraph_id, query, variables?)` — run an arbitrary GraphQL query.
+- `introspect_schema(subgraph_id)` — fetch the subgraph schema for query construction.
+
+## Auth
+
+- **Platform key:** gateway env `PLATFORM_THEGRAPH_KEY`.
+- **BYO:** `?_apiKey=<key>` after signing up at https://thegraph.com/studio/apikeys (free 100k queries/month).
+
+The legacy hosted service is gone; everything routes through the decentralized network gateway at `gateway-arbitrum.network.thegraph.com`.
+
+## Finding subgraph IDs
+
+Browse https://thegraph.com/explorer. Each subgraph's "Query URL" ends in `/subgraphs/id/<the-id-you-want>`.
 
 ## Quick Start
 
@@ -23,7 +34,7 @@ Add to your MCP client (Claude Desktop, Cursor, Windsurf, etc.):
 }
 ```
 
-Or connect to the full Pipeworx gateway for access to all 673+ data sources:
+Or connect to the full Pipeworx gateway for access to all 1394+ data sources:
 
 ```json
 {
@@ -47,7 +58,7 @@ The gateway picks the right tool and fills the arguments automatically.
 
 ## More
 
-- [All tools and guides](https://github.com/pipeworx-io/examples)
+- [Docs and guides](https://pipeworx.io/docs)
 - [pipeworx.io](https://pipeworx.io)
 
 ## License
