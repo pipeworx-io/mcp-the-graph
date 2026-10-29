@@ -1,0 +1,53 @@
+[
+  {
+    "name": "query_subgraph",
+    "description": "Run a GraphQL query against a subgraph on The Graph network. subgraph_id is the deployment hash (starts with \"Qm…\" or the new \"0x…\" subgraph ID from thegraph.com/explorer). Returns the GraphQL `data` block plus any errors. Requires your own The Graph API key, passed as _apiKey.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "subgraph_id": {
+          "type": "string",
+          "description": "Subgraph deployment ID (look up at thegraph.com/explorer; e.g., Uniswap v3 Ethereum is \"5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV\")"
+        },
+        "query": {
+          "type": "string",
+          "description": "GraphQL query string"
+        },
+        "variables": {
+          "type": "object",
+          "description": "Optional GraphQL variables object"
+        },
+        "_apiKey": {
+          "type": "string",
+          "description": "Your own The Graph API key (BYO — Pipeworx does not supply one). Free 100k queries/month after signup at https://thegraph.com/studio/apikeys."
+        }
+      },
+      "required": [
+        "subgraph_id",
+        "query",
+        "_apiKey"
+      ]
+    }
+  },
+  {
+    "name": "introspect_schema",
+    "description": "Fetch a subgraph's GraphQL schema via standard introspection. Returns types, fields, and arguments so an agent can build queries without external docs. Requires your own The Graph API key, passed as _apiKey.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "subgraph_id": {
+          "type": "string",
+          "description": "Subgraph deployment ID"
+        },
+        "_apiKey": {
+          "type": "string",
+          "description": "Your own The Graph API key (BYO — Pipeworx does not supply one). Free 100k queries/month after signup at https://thegraph.com/studio/apikeys."
+        }
+      },
+      "required": [
+        "subgraph_id",
+        "_apiKey"
+      ]
+    }
+  }
+]

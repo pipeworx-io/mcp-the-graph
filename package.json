@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-the-graph",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "The Graph MCP — indexed blockchain data via subgraph GraphQL queries",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-the-graph": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "the-graph"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-the-graph.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/the-graph",
   "pipeworx": {
-    "sourceHash": "v1-75f77547ab4078154ad65f7c4ca1748ba99c229d758b671945b5751f0fb5fa92",
-    "sourceCommit": "66a0692f029179984440cef6938cba7fdd41d66d"
+    "mode": "gateway",
+    "slug": "the-graph",
+    "gatewaySlug": "the-graph",
+    "sourceHash": "v1-52e929e25e179bfd76fb2455b74d3d3c154845983a984de089de92b9e30dc854",
+    "sourceCommit": "f47d581679e1e887373df51ba623f891fbe4c464"
   }
 }
